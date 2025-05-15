@@ -17,7 +17,10 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post("https://hillary-portfolio.onrender.com", formData);
+      await axios.post(
+        "https://hillary-portfolio.onrender.com/send-email",
+        formData
+      );
       alert("Message sent successfully!");
     } catch (error) {
       alert("Failed to send message.");
