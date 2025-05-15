@@ -5,7 +5,7 @@ const Home = () => {
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [speed, setSpeed] = useState(150); // typing speed
+  const [speed, setSpeed] = useState(150);
 
   useEffect(() => {
     const currentPhrase = phrases[phraseIndex];
@@ -49,7 +49,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="flex flex-col-reverse md:flex-row justify-center items-center min-h-screen px-5 md:px-20 pt-20 text-white gap-2 shadow-md"
+      className="flex flex-col-reverse md:flex-row justify-center items-center min-h-screen px-5 md:px-20 pt-20 text-white gap-6 shadow-md"
     >
       {/* Left Content */}
       <div className="max-w-xl text-center md:text-left">
@@ -63,53 +63,66 @@ const Home = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex w-[620px] gap-[20px] justify-center md:justify-start mb-8">
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8">
           <a
             href="#hire"
-            className="relative inline-flex items-center justify-center px-4 py-1 overflow-hidden font-semibold text-[#ffffff] transition duration-500 bg-[#6B6B6B] shadow-md rounded-md group hover:text-[#6B6B6B]"
+            className="relative inline-flex items-center shadow-md justify-center px-6 py-2 overflow-hidden font-semibold text-white transition duration-500 bg-[#6B6B6B] rounded-md group"
           >
-            <span className="absolute inset-0 w-0 h-full transition-all bg-[#ffffff] group-hover:w-full duration-500 ease-in-out"></span>
-            <span className="relative">Hire Me</span>
+            <span className="absolute inset-0 w-0 bg-white transition-all duration-500 ease-in-out group-hover:w-full z-0"></span>
+            <span className="relative z-10 group-hover:text-[#6B6B6B]">
+              Hire Me
+            </span>
           </a>
           <a
             href="#contact"
-            className="relative inline-flex items-center justify-center px-4 py-1 overflow-hidden font-semibold text-[#6B6B6B] transition duration-500  shadow-md border-2 border-white rounded-md group hover:text-[#ffffff]"
+            className="relative inline-flex shadow-md items-center justify-center px-6 py-2 overflow-hidden font-semibold text-[#6B6B6B] border-2 border-white rounded-md group"
           >
-            <span className="absolute inset-0 w-0 h-full transition-all bg-[#6B6B6B] group-hover:w-full duration-500 ease-in-out"></span>
-            <span className="relative">Let's Talk</span>
+            <span className="absolute inset-0 w-0 bg-[#6B6B6B] transition-all duration-500 ease-in-out group-hover:w-full z-0"></span>
+            <span className="relative z-10 group-hover:text-white">
+              Let's Talk
+            </span>
           </a>
         </div>
 
         {/* Social Icons */}
         <div className="flex justify-center md:justify-start gap-6">
-          <a
-            href="https://www.facebook.com/yourprofile"
-            className="relative w-10 h-10 flex items-center justify-center border-2 border-[#6B6B6B] rounded-full text-[#6B6B6B] group hover:text-white overflow-hidden focus:outline-none focus:ring-0"
-          >
-            <i className="bx bxl-facebook text-xl z-10 transition-colors duration-500 group-hover:text-white"></i>
-            <span className="absolute inset-[-2px] w-0 h-[calc(100%+4px)] bg-[#1877F2] group-hover:w-[calc(100%+4px)] transition-all duration-500 ease-in-out z-0 rounded-full"></span>
-          </a>
-          <a
-            href="https://twitter.com/yourhandle"
-            className="relative w-10 h-10 flex items-center justify-center border-2 border-[#6B6B6B] rounded-full text-[#6B6B6B] group hover:text-white overflow-hidden focus:outline-none focus:ring-0"
-          >
-            <i className="bx bxl-twitter text-xl z-10 transition-colors duration-500 group-hover:text-white"></i>
-            <span className="absolute inset-[-2px] w-0 h-[calc(100%+4px)] bg-[#1DA1F2] group-hover:w-[calc(100%+4px)] transition-all duration-500 ease-in-out z-0 rounded-full"></span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/hilary-gebremedhn-97528b20b"
-            className="relative w-10 h-10 flex items-center justify-center border-2 border-[#6B6B6B] rounded-full text-[#6B6B6B] group hover:text-white overflow-hidden focus:outline-none focus:ring-0"
-          >
-            <i className="bx bxl-linkedin text-xl z-10 transition-colors duration-500 group-hover:text-white"></i>
-            <span className="absolute inset-[-2px] w-0 h-[calc(100%+4px)] bg-[#0A66C2] group-hover:w-[calc(100%+4px)] transition-all duration-500 ease-in-out z-0 rounded-full"></span>
-          </a>
-          <a
-            href="https://github.com/yourusername"
-            className="relative w-10 h-10 flex items-center justify-center border-2 border-[#6B6B6B] rounded-full text-[#6B6B6B] group hover:text-white overflow-hidden focus:outline-none focus:ring-0"
-          >
-            <i className="bx bxl-github text-xl z-10 transition-colors duration-500 group-hover:text-white"></i>
-            <span className="absolute inset-[-2px] w-0 h-[calc(100%+4px)] bg-[#181717] group-hover:w-[calc(100%+4px)] transition-all duration-500 ease-in-out z-0 rounded-full"></span>
-          </a>
+          {[
+            {
+              href: "https://web.facebook.com/hilary.gebremedhn/",
+              icon: "bxl-facebook",
+              bg: "bg-[#1877F2]",
+            },
+            {
+              href: "https://x.com/hilarygebr71591",
+              icon: "bxl-twitter",
+              bg: "bg-[#1DA1F2]",
+            },
+            {
+              href: "https://www.linkedin.com/in/hilary-gebremedhn-97528b20b",
+              icon: "bxl-linkedin",
+              bg: "bg-[#0A66C2]",
+            },
+            {
+              href: "https://github.com/HilaryGH",
+              icon: "bxl-github",
+              bg: "bg-[#181717]",
+            },
+          ].map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`relative w-10 h-10 flex items-center justify-center border-2 border-[#6B6B6B] rounded-full text-[#6B6B6B] group overflow-hidden`}
+            >
+              <i
+                className={`bx ${social.icon} text-xl z-10 transition-colors duration-500 group-hover:text-white`}
+              ></i>
+              <span
+                className={`absolute inset-[-2px] w-0 h-[calc(100%+4px)] ${social.bg} group-hover:w-[calc(100%+4px)] transition-all duration-500 ease-in-out z-0 rounded-full`}
+              ></span>
+            </a>
+          ))}
         </div>
       </div>
 
@@ -118,10 +131,7 @@ const Home = () => {
         <img
           src="20200511_110505.jpg"
           alt="Profile"
-          className="w-50 h-50      /* Mobile size */
-      md:w-70 md:h-70
-      lg:w-90 lg:h-90
-     object-cover shadow-2xl profile-img"
+          className="w-48 h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 object-cover shadow-2xl profile-img"
         />
       </div>
     </section>

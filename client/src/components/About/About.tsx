@@ -2,7 +2,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col md:flex-row justify-between items-center shadow-md px-4 md:px-16 py-12 text-off-white gap-6 md:gap-20"
+      className="flex flex-col md:flex-row justify-center md:justify-between items-center text-center md:text-left shadow-md px-4 md:px-16 py-12 text-off-white gap-6 md:gap-20"
     >
       <div className="Avatar hidden md:block">
         <figure className="w-40 md:w-[400px] h-40 md:h-[400px]">
@@ -18,10 +18,10 @@ const About = () => {
       </div>
 
       <div className="content max-w-2xl">
-        <h2 className="text-left text-3xl md:text-5xl font-bold">
+        <h2 className="text-3xl md:text-5xl font-bold text-center md:text-left">
           About <span className="text-[#6B6B6B] text-xl md:text-3xl">me</span>
         </h2>
-        <h3 className="text-2xl md:text-3xl font-semibold mt-2">
+        <h3 className="text-2xl md:text-3xl font-semibold mt-2 text-center md:text-left">
           Full Stack <span className="text-warm-yellow">Developer</span>
         </h3>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl mt-6 mb-8 leading-relaxed text-justify max-w-full md:max-w-xl px-4 sm:px-6 md:px-0">
