@@ -16,7 +16,7 @@ const About = () => {
         <div className="relative group mx-auto md:mx-0 w-64 h-64 md:w-80 md:h-80">
           {/* Glow Effect */}
           <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-cyan-500 to-purple-600 rounded-full blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse"></div>
-          
+
           {/* Image Container */}
           <div className="relative overflow-hidden rounded-full border-4 border-white/10 shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-400/50 w-full h-full">
             <img
@@ -53,7 +53,7 @@ const About = () => {
             <span className="text-gray-300">me</span>
           </h2>
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-            Full Stack{" "}
+            Self-Taught Full Stack{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
               Developer
             </span>
@@ -63,22 +63,26 @@ const About = () => {
         {/* Description */}
         <div className="space-y-4">
           <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
-            Hi, I'm Hilari Gebremedhin, a passionate full stack developer with a
-            strong foundation in engineering and problem-solving. I hold a degree
-            in Mechanical Engineering from Addis Ababa University, where I honed
-            my analytical and technical skills.
+            Hi, I'm <span className="text-cyan-400 font-semibold">Hilari Gebremedhin</span>, a
+            self-taught Full Stack Developer with a strong engineering mindset and a passion
+            for creating meaningful digital experiences. I hold a Mechanical Engineering
+            degree from Addis Ababa University, which shaped my analytical thinking and
+            problem-solving skills.
           </p>
+
           <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
-            My journey into software development began with a desire to create impactful and user-friendly
-            web applications. I've built a solid foundation in HTML, CSS,
-            JavaScript, React, and am expanding my backend skills with Node.js and
-            databases. My hands-on projects showcase creativity, performance, and
-            attention to detail.
+            My journey into software development started from curiosity and a drive to build
+            solutions people actually use. I taught myself modern web technologies—HTML, CSS,
+            JavaScript, React, Node.js, and databases. Every project I build focuses on clean
+            design, high performance, and user-centered functionality.
           </p>
+
           <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
-            I'm also learning Scrum methodologies to improve team collaboration. My goal is to lead meaningful tech projects that
-            solve real-world problems. Let's connect and build something impactful
-            together!
+            Being self-taught made me resourceful, fast-learning, and deeply committed. I
+            enjoy turning ideas into complete products, and I apply Agile/Scrum practices to
+            collaborate effectively. My mission is to build scalable websites and powerful
+            digital solutions that solve real-world problems. Let's create something
+            exceptional together!
           </p>
         </div>
 
@@ -105,3 +109,4 @@ const About = () => {
 };
 
 export default About;
+

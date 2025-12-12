@@ -119,12 +119,31 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE MENU BUTTON - Hamburger to X */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2.5 rounded-lg bg-white/10 text-gray-300 hover:text-white border border-white/10 transition-all"
+            className="md:hidden p-2.5 text-gray-300 hover:text-white transition-all relative w-10 h-10 flex items-center justify-center"
+            aria-label="Toggle menu"
           >
-            <i className={`bx text-2xl ${open ? "bx-x" : "bx-menu"}`}></i>
+            <span className="sr-only">Menu</span>
+            {/* Three lines hamburger icon */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
+              <span
+                className={`block h-0.5 w-6 bg-current rounded-full transition-all duration-300 ${
+                  open ? "rotate-45 translate-y-2" : ""
+                }`}
+              ></span>
+              <span
+                className={`block h-0.5 w-6 bg-current rounded-full transition-all duration-300 ${
+                  open ? "opacity-0" : ""
+                }`}
+              ></span>
+              <span
+                className={`block h-0.5 w-6 bg-current rounded-full transition-all duration-300 ${
+                  open ? "-rotate-45 -translate-y-2" : ""
+                }`}
+              ></span>
+            </div>
           </button>
         </div>
 
