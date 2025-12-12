@@ -2,13 +2,10 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 30);
-
       const sections = ["home", "about", "work", "blog", "contact"];
 
       let current = "home";
