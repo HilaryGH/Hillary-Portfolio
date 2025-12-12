@@ -40,11 +40,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-gradient-to-br from-[#0F0F14] via-[#1a1a24] to-[#0F0F14] px-10 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-violet-500/5"
-          : "bg-transparent backdrop-blur-sm"
-      }`}
+      className="fixed top-0 left-0 w-full z-50 bg-gradient-to-br from-[#0F0F14] via-[#1a1a24] to-[#0F0F14] backdrop-blur-xl border-b border-white/5 shadow-lg shadow-violet-500/5 transition-all duration-500"
     >
       <nav className="w-full mx-auto px-6 sm:px-10 lg:px-20">
         <div className="flex items-center justify-between h-20">

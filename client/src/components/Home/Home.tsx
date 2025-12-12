@@ -33,15 +33,18 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative h-[100vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-violet-600"
+      className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-violet-600"
+      style={{ height: 'calc(100vh - 80px)', marginTop: '80px' }}
     >
       {/* Brand Color Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-violet-600 via-purple-600 to-violet-600"></div>
+      
+    
 
       {/* Creative SVG Curves with Brand Colors */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top Right Curve with Image - More Visible */}
-        <svg className="absolute top-0 right-0 w-full h-3/4" style={{ zIndex: 1 }}>
+        {/* Top Right Curve with Image - Behind Layer */}
+        <svg className="absolute top-0 right-0 w-full h-3/4" style={{ zIndex: 0 }}>
           <defs>
             <clipPath id="topRightCurve">
               <path d="M1440,0 Q1200,100 1000,150 T700,200 Q500,230 300,250 T0,280 L0,0 Z" />
@@ -53,13 +56,18 @@ const Home = () => {
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
+            <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#7c3aed" stopOpacity="1" />
+              <stop offset="50%" stopColor="#7c3aed" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
+            </linearGradient>
           </defs>
           <image
             href="20200511_110505.jpg"
-            x="-10%"
-            y="-5%"
+            x="-15%"
+            y="-10%"
             width="120%"
-            height="110%"
+            height="130%"
             preserveAspectRatio="xMidYMid cover"
             clipPath="url(#topRightCurve)"
             filter="url(#imageGlow)"
@@ -67,19 +75,30 @@ const Home = () => {
             className="animate-pulse"
             style={{ animationDuration: '4s' }}
           />
+          {/* Smooth edge overlay to blend sections */}
+          <rect
+            x="0"
+            y="0"
+            width="400"
+            height="100%"
+            fill="url(#edgeGradient)"
+            opacity="0.4"
+            style={{ mixBlendMode: 'multiply' }}
+          />
         </svg>
 
-        {/* Additional Image Layer for More Visibility */}
-        <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden" style={{ zIndex: 1 }}>
+        {/* Additional Image Layer for More Visibility - Front Layer */}
+        <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden" style={{ zIndex: 2 }}>
           <img
             src="20200511_110505.jpg"
             alt="Hillary"
             className="w-full h-full object-cover opacity-30 mix-blend-overlay"
             style={{ transform: 'scale(1.1)' }}
           />
+          {/* Smooth gradient transition to blend with left section */}
+          
         </div>
 
-        {/* Bottom Right Flowing Curve - Purple */}
         
         {/* Center Wave Curve - Connecting Element */}
         <svg 
@@ -103,10 +122,7 @@ const Home = () => {
           />
         </svg>
 
-        {/* Left Side Accent Curve */}
      
-        
-        {/* Right Side Accent Curve */}
        
       </div>
 
