@@ -33,8 +33,8 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative flex flex-col lg:flex-row items-center justify-center overflow-hidden min-h-screen"
-      style={{ marginTop: '80px', backgroundColor: 'transparent', paddingTop: '0px', paddingBottom: '20px' }}
+      className="relative flex flex-col lg:flex-row items-center justify-center overflow-hidden"
+      style={{ height: 'calc(100vh - 80px)', marginTop: '80px', backgroundColor: 'transparent', paddingTop: '0px', paddingBottom: '20px' }}
     >
       {/* Desktop: Right Side Background Image with Opacity */}
       <div 
@@ -175,7 +175,7 @@ const Home = () => {
           
           {/* Main Organic Curve Separator - Horizontal Wave Design for Mobile */}
           <path
-            d="M 0,0 L 800,0 L 800,600 C 750,600 600,650 500,700 C 400,750 300,800 200,850 C 100,900 50,950 0,1000 L 0,0 Z"
+            d="M 0,0 L 800,0 L 800,500 C 750,500 600,550 500,600 C 400,650 300,700 200,750 C 100,800 50,850 0,900 L 0,0 Z"
             fill="url(#mobileCurveGradient1)"
             stroke="none"
             filter="url(#mobileGlow)"
@@ -183,7 +183,7 @@ const Home = () => {
           
           {/* Secondary Curve for Depth */}
           <path
-            d="M 0,0 L 800,0 L 800,580 C 720,580 650,620 550,680 C 450,740 350,790 250,840 C 150,890 80,940 0,980 L 0,0 Z"
+            d="M 0,0 L 800,0 L 800,480 C 720,480 650,520 550,580 C 450,640 350,690 250,740 C 150,790 80,840 0,880 L 0,0 Z"
             fill="url(#mobileCurveGradient3)"
             stroke="none"
             opacity="0.9"
@@ -191,7 +191,7 @@ const Home = () => {
           
           {/* Tertiary Curve for Layered Effect */}
           <path
-            d="M 0,0 L 800,0 L 800,560 C 700,560 600,610 500,660 C 400,710 300,760 200,810 C 100,860 50,910 0,960 L 0,0 Z"
+            d="M 0,0 L 800,0 L 800,460 C 700,460 600,510 500,560 C 400,610 300,660 200,710 C 100,760 50,810 0,860 L 0,0 Z"
             fill="url(#mobileCurveGradient2)"
             stroke="none"
             opacity="0.7"
@@ -202,7 +202,7 @@ const Home = () => {
       {/* Additional Decorative Wave at Bottom */}
      
       {/* Hero Content - Top on Mobile, Left on Desktop */}
-      <div className="relative z-10 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-4 pb-8 lg:py-20">
+      <div className="relative z-10 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-0 pb-8 lg:py-20">
         <div className="max-w-4xl text-left">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 mb-6 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
