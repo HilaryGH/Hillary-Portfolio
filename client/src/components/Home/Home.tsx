@@ -34,7 +34,7 @@ const Home = () => {
     <section
       id="home"
       className="relative flex flex-col lg:flex-row items-center justify-center overflow-hidden min-h-screen"
-      style={{ marginTop: '80px', backgroundColor: 'transparent', paddingTop: '20px', paddingBottom: '20px' }}
+      style={{ marginTop: '80px', backgroundColor: 'transparent', paddingTop: '0px', paddingBottom: '20px' }}
     >
       {/* Desktop: Right Side Background Image with Opacity */}
       <div 
@@ -202,7 +202,7 @@ const Home = () => {
       {/* Additional Decorative Wave at Bottom */}
      
       {/* Hero Content - Top on Mobile, Left on Desktop */}
-      <div className="relative z-10 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 py-8 lg:py-20">
+      <div className="relative z-10 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-4 pb-8 lg:py-20">
         <div className="max-w-4xl text-left">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 mb-6 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
