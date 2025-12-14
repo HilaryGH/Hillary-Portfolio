@@ -58,21 +58,21 @@ const Home = () => {
         }}
       ></div>
 
-      {/* Mobile: Bottom Background Image with Curved Edge - Extended upward to show through curve */}
+      {/* Mobile: Bottom Background Image with Curved Edge - Right side downward then upward wave */}
       <div 
         className="lg:hidden absolute top-[50%] bottom-0 left-0 right-0 w-full bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url(/20200511_110505.jpg)',
           opacity: 0.7,
           zIndex: 1,
-          clipPath: 'polygon(0% 20%, 5% 18%, 10% 16%, 15% 14%, 20% 12%, 25% 10%, 30% 8%, 35% 7%, 40% 6%, 45% 5.5%, 50% 5%, 55% 6%, 60% 8%, 65% 10%, 70% 12%, 75% 14%, 80% 16%, 85% 17.5%, 90% 18.5%, 95% 19.5%, 100% 20%, 100% 100%, 0% 100%)'
+          clipPath: 'polygon(0% 0%, 55% 0%, 65% 0%, 70% 12%, 75% 20%, 80% 22%, 82% 20%, 85% 15%, 88% 10%, 92% 6%, 96% 3%, 100% 0%, 100% 100%, 0% 100%)'
         }}
       >
         {/* Brand Color Overlay on Image - Matches the curve */}
         <div 
           className="absolute inset-0 bg-gradient-to-t from-violet-600/15 via-purple-600/10 to-transparent"
           style={{
-            clipPath: 'polygon(0% 20%, 5% 18%, 10% 16%, 15% 14%, 20% 12%, 25% 10%, 30% 8%, 35% 7%, 40% 6%, 45% 5.5%, 50% 5%, 55% 6%, 60% 8%, 65% 10%, 70% 12%, 75% 14%, 80% 16%, 85% 17.5%, 90% 18.5%, 95% 19.5%, 100% 20%, 100% 100%, 0% 100%)'
+            clipPath: 'polygon(0% 0%, 55% 0%, 65% 0%, 70% 12%, 75% 20%, 80% 22%, 82% 20%, 85% 15%, 88% 10%, 92% 6%, 96% 3%, 100% 0%, 100% 100%, 0% 100%)'
           }}
         ></div>
       </div>
@@ -151,37 +151,37 @@ const Home = () => {
       {/* Additional Decorative Wave at Bottom */}
      
       {/* Hero Content - Top on Mobile, Left on Desktop */}
-      <div className="lg:relative absolute lg:static z-10 top-0 left-0 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-0 lg:pt-12 pb-2 lg:pb-8">
+      <div className="lg:relative absolute lg:static z-10 top-0 left-0 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-4 sm:pt-6 lg:pt-12 pb-2 lg:pb-8" style={{ maxHeight: '60%', overflowY: 'auto' }}>
         <div className="max-w-4xl text-left">
           {/* Badge */}
-          <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 lg:mb-6 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
-            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-violet-400 rounded-full animate-pulse mr-2"></span>
-            <span className="text-[10px] sm:text-xs font-semibold text-white drop-shadow-2xl font-bold">
+          <div className="inline-flex items-center px-4 sm:px-4 py-2 sm:py-2 mb-4 sm:mb-5 lg:mb-6 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
+            <span className="w-2 h-2 bg-violet-400 rounded-full animate-pulse mr-2"></span>
+            <span className="text-xs sm:text-sm font-semibold text-white drop-shadow-2xl font-bold">
               Available for opportunities
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-3 lg:mb-4 leading-tight">
-            <span className="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] mb-1 sm:mb-2">
+          <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-5 lg:mb-4 leading-tight">
+            <span className="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] mb-2 sm:mb-2">
               {text || "Hi, I'm Hillary"}
             </span>
            
           </h1>
 
           {/* Subheadline */}
-          <p className="text-sm sm:text-base md:text-lg text-white mb-3 sm:mb-4 lg:mb-8 leading-relaxed max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] font-semibold">
+          <p className="text-base sm:text-lg md:text-lg text-white mb-5 sm:mb-6 lg:mb-8 leading-relaxed max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] font-semibold">
             Crafting scalable, modern, and user-centered applications using cutting-edge full-stack technologies.
-            <span className="block mt-1 sm:mt-2 text-violet-100 font-medium">
+            <span className="block mt-2 sm:mt-2 text-violet-100 font-medium">
               Turning ideas into digital experiences.
             </span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4 lg:mb-8 flex-wrap">
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-4 mb-4 sm:mb-5 lg:mb-8 flex-wrap">
             <a
               href="#hire"
-              className="group relative px-6 sm:px-8 lg:px-12 py-2 sm:py-3 lg:py-4 bg-white text-violet-700 lg:bg-gradient-to-r lg:from-violet-600 lg:via-purple-600 lg:to-violet-600 lg:text-white text-sm sm:text-base lg:text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center backdrop-blur-sm border-2 border-white/30"
+              className="group relative px-8 sm:px-10 lg:px-12 py-3 sm:py-3 lg:py-4 bg-white text-violet-700 lg:bg-gradient-to-r lg:from-violet-600 lg:via-purple-600 lg:to-violet-600 lg:text-white text-base sm:text-base lg:text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center backdrop-blur-sm border-2 border-white/30"
             >
               <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                 <span>Hire Me</span>
@@ -193,7 +193,7 @@ const Home = () => {
 
             <a
               href="#contact"
-              className="group relative px-6 sm:px-8 lg:px-12 py-2 sm:py-3 lg:py-4 bg-white/90 backdrop-blur-md text-violet-700 lg:bg-white/15 lg:text-white text-sm sm:text-base lg:text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center border-2 border-white/30"
+              className="group relative px-8 sm:px-10 lg:px-12 py-3 sm:py-3 lg:py-4 bg-white/90 backdrop-blur-md text-violet-700 lg:bg-white/15 lg:text-white text-base sm:text-base lg:text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center border-2 border-white/30"
             >
               <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                 <span>Let's Talk</span>
@@ -204,36 +204,45 @@ const Home = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-3 sm:gap-4 lg:gap-5 pt-1 sm:pt-2 lg:pt-4">
-            {[
-              {
-                href: "https://web.facebook.com/hilary.gebremedhn/",
-                icon: "bxl-facebook",
-              },
-              { 
-                href: "https://x.com/hilarygebr71591", 
-                icon: "bxl-twitter",
-              },
-              {
-                href: "https://www.linkedin.com/in/hilary-gebremedhn-97528b20b",
-                icon: "bxl-linkedin",
-              },
-              { 
-                href: "https://github.com/HilaryGH", 
-                icon: "bxl-github",
-              },
-            ].map((s, index) => (
-              <a
-                key={index}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex justify-center items-center text-white hover:text-violet-200 transition-all duration-300 ease-out hover:scale-125 active:scale-95"
-                aria-label={`Visit ${s.icon.replace('bxl-', '').replace('bx-', '')} profile`}
-              >
-                <i className={`bx ${s.icon} text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg`} />
-              </a>
-            ))}
+          <div className="flex gap-4 sm:gap-5 lg:gap-5 pt-2 sm:pt-3 lg:pt-4">
+            <a
+              href="https://web.facebook.com/hilary.gebremedhn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex justify-center items-center text-white hover:text-violet-200 transition-all duration-300 ease-out hover:scale-125 active:scale-95"
+              aria-label="Visit Facebook profile"
+            >
+              <i className="bx bxl-facebook text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+            </a>
+            <a
+              href="https://x.com/hilarygebr71591"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex justify-center items-center text-white hover:text-violet-200 transition-all duration-300 ease-out hover:scale-125 active:scale-95"
+              aria-label="Visit X profile"
+            >
+              <svg className="w-6 h-6 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/hilary-gebremedhn-97528b20b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex justify-center items-center text-white hover:text-violet-200 transition-all duration-300 ease-out hover:scale-125 active:scale-95"
+              aria-label="Visit LinkedIn profile"
+            >
+              <i className="bx bxl-linkedin text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+            </a>
+            <a
+              href="https://github.com/HilaryGH"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex justify-center items-center text-white hover:text-violet-200 transition-all duration-300 ease-out hover:scale-125 active:scale-95"
+              aria-label="Visit GitHub profile"
+            >
+              <i className="bx bxl-github text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+            </a>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ const About = () => {
       </div>
 
       {/* Avatar Section */}
-      <div className="relative flex-shrink-0 w-full md:w-auto">
+      <div className="relative z-20 flex-shrink-0 w-full md:w-auto">
         <div className="relative group mx-auto md:mx-0 w-64 h-64 md:w-80 md:h-80">
           {/* Glow Effect */}
           <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-cyan-500 to-purple-600 rounded-full blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse"></div>
@@ -37,11 +37,11 @@ const About = () => {
       </div>
 
       {/* Content Section */}
-      <div className="relative z-10 text-white max-w-2xl w-full space-y-6">
+      <div className="relative z-20 text-white max-w-2xl w-full space-y-6">
         {/* Section Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 w-fit">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 w-fit">
           <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-          <span className="text-sm text-gray-300">About Me</span>
+          <span className="text-sm text-white font-medium">About Me</span>
         </div>
 
         {/* Heading */}
@@ -50,9 +50,9 @@ const About = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400">
               About
             </span>{" "}
-            <span className="text-gray-300">me</span>
+            <span className="text-white">me</span>
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
             Self-Taught Full Stack{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
               Developer
@@ -62,7 +62,7 @@ const About = () => {
 
         {/* Description */}
         <div className="space-y-4">
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+          <p className="text-gray-100 text-base sm:text-lg md:text-xl leading-relaxed">
             Hi, I'm <span className="text-cyan-400 font-semibold">Hilari Gebremedhin</span>, a
             self-taught Full Stack Developer with a strong engineering mindset and a passion
             for creating meaningful digital experiences. I hold a Mechanical Engineering
@@ -70,14 +70,14 @@ const About = () => {
             problem-solving skills.
           </p>
 
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+          <p className="text-gray-100 text-base sm:text-lg md:text-xl leading-relaxed">
             My journey into software development started from curiosity and a drive to build
             solutions people actually use. I taught myself modern web technologies—HTML, CSS,
             JavaScript, React, Node.js, and databases. Every project I build focuses on clean
             design, high performance, and user-centered functionality.
           </p>
 
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+          <p className="text-gray-100 text-base sm:text-lg md:text-xl leading-relaxed">
             Being self-taught made me resourceful, fast-learning, and deeply committed. I
             enjoy turning ideas into complete products, and I apply Agile/Scrum practices to
             collaborate effectively. My mission is to build scalable websites and powerful

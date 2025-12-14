@@ -175,23 +175,48 @@ const Contact = () => {
           <div>
             <p className="text-gray-400 text-sm mb-4">Connect with me</p>
             <ul className="flex gap-4">
-              {[
-                { href: "https://web.facebook.com/hilary.gebremedhn/", icon: "bxl-facebook", color: "hover:text-blue-500" },
-                { href: "https://www.linkedin.com/in/hilary-gebremedhn-97528b20b", icon: "bxl-linkedin", color: "hover:text-blue-600" },
-                { href: "https://x.com/hilarygebr71591", icon: "bxl-twitter", color: "hover:text-sky-400" },
-                { href: "https://github.com/HilaryGH", icon: "bxl-github", color: "hover:text-gray-300" },
-              ].map((social, index) => (
-                <li key={index}>
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white ${social.color} transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-cyan-500/20`}
-                  >
-                    <i className={`bx ${social.icon} text-2xl`} />
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="https://web.facebook.com/hilary.gebremedhn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:text-blue-500 transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-cyan-500/20"
+                >
+                  <i className="bx bxl-facebook text-2xl" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/hilary-gebremedhn-97528b20b"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:text-blue-600 transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-cyan-500/20"
+                >
+                  <i className="bx bxl-linkedin text-2xl" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/hilarygebr71591"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:text-sky-400 transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-cyan-500/20"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/HilaryGH"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:text-gray-300 transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-cyan-500/20"
+                >
+                  <i className="bx bxl-github text-2xl" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
