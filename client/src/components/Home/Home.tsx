@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative flex flex-col lg:flex-row items-center justify-center overflow-hidden"
+      className="relative flex flex-col lg:flex-row items-start lg:items-center justify-center overflow-hidden"
       style={{ height: 'calc(100vh - 80px)', marginTop: '80px', backgroundColor: 'transparent', paddingTop: '0px', paddingBottom: '20px' }}
     >
       {/* Desktop: Right Side Background Image with Opacity */}
@@ -49,17 +49,32 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-l from-violet-600/15 via-purple-600/10 to-transparent"></div>
       </div>
 
-      {/* Mobile: Bottom Background Image with Opacity */}
+      {/* Mobile: Violet Background for Upper Part */}
       <div 
-        className="lg:hidden absolute top-1/2 bottom-0 left-0 right-0 w-full bg-cover bg-center bg-no-repeat"
+        className="lg:hidden absolute top-0 left-0 right-0 w-full bg-gradient-to-b from-violet-600 via-violet-700 to-violet-800"
+        style={{
+          height: '60%',
+          zIndex: 0
+        }}
+      ></div>
+
+      {/* Mobile: Bottom Background Image with Curved Edge - Extended upward to show through curve */}
+      <div 
+        className="lg:hidden absolute top-[50%] bottom-0 left-0 right-0 w-full bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url(/20200511_110505.jpg)',
           opacity: 0.7,
-          zIndex: 1
+          zIndex: 1,
+          clipPath: 'polygon(0% 20%, 5% 18%, 10% 16%, 15% 14%, 20% 12%, 25% 10%, 30% 8%, 35% 7%, 40% 6%, 45% 5.5%, 50% 5%, 55% 6%, 60% 8%, 65% 10%, 70% 12%, 75% 14%, 80% 16%, 85% 17.5%, 90% 18.5%, 95% 19.5%, 100% 20%, 100% 100%, 0% 100%)'
         }}
       >
-        {/* Brand Color Overlay on Image - Very light for better visibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-violet-600/15 via-purple-600/10 to-transparent"></div>
+        {/* Brand Color Overlay on Image - Matches the curve */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-t from-violet-600/15 via-purple-600/10 to-transparent"
+          style={{
+            clipPath: 'polygon(0% 20%, 5% 18%, 10% 16%, 15% 14%, 20% 12%, 25% 10%, 30% 8%, 35% 7%, 40% 6%, 45% 5.5%, 50% 5%, 55% 6%, 60% 8%, 65% 10%, 70% 12%, 75% 14%, 80% 16%, 85% 17.5%, 90% 18.5%, 95% 19.5%, 100% 20%, 100% 100%, 0% 100%)'
+          }}
+        ></div>
       </div>
 
       {/* Desktop: Creative Curved Separator - Vertical */}
@@ -132,111 +147,45 @@ const Home = () => {
           <circle cx="860" cy="550" r="10" fill="#7c3aed" opacity="0.4" className="animate-pulse" style={{ animationDelay: '2s' }} />
         </svg>
       </div>
-
-      {/* Mobile: Creative Curved Separator - Horizontal */}
-      <div className="lg:hidden absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 2 }}>
-        <svg 
-          className="absolute top-0 left-0 w-full h-full" 
-          viewBox="0 0 800 1440" 
-          preserveAspectRatio="none"
-        >
-          <defs>
-            {/* Brand color gradients - Vertical for mobile */}
-            <linearGradient id="mobileCurveGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#7c3aed" stopOpacity="1" />
-              <stop offset="40%" stopColor="#8b5cf6" stopOpacity="0.95" />
-              <stop offset="60%" stopColor="#9333ea" stopOpacity="0.85" />
-              <stop offset="80%" stopColor="#9333ea" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#9333ea" stopOpacity="0" />
-            </linearGradient>
-            
-            <linearGradient id="mobileCurveGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.9" />
-              <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.75" />
-              <stop offset="80%" stopColor="#8b5cf6" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
-            </linearGradient>
-            
-            <linearGradient id="mobileCurveGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-              <stop offset="60%" stopColor="#a855f7" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
-            </linearGradient>
-            
-            {/* Glow filter for depth */}
-            <filter id="mobileGlow">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          
-          {/* Main Organic Curve Separator - Horizontal Wave Design for Mobile */}
-          <path
-            d="M 0,0 L 800,0 L 800,500 C 750,500 600,550 500,600 C 400,650 300,700 200,750 C 100,800 50,850 0,900 L 0,0 Z"
-            fill="url(#mobileCurveGradient1)"
-            stroke="none"
-            filter="url(#mobileGlow)"
-          />
-          
-          {/* Secondary Curve for Depth */}
-          <path
-            d="M 0,0 L 800,0 L 800,480 C 720,480 650,520 550,580 C 450,640 350,690 250,740 C 150,790 80,840 0,880 L 0,0 Z"
-            fill="url(#mobileCurveGradient3)"
-            stroke="none"
-            opacity="0.9"
-          />
-          
-          {/* Tertiary Curve for Layered Effect */}
-          <path
-            d="M 0,0 L 800,0 L 800,460 C 700,460 600,510 500,560 C 400,610 300,660 200,710 C 100,760 50,810 0,860 L 0,0 Z"
-            fill="url(#mobileCurveGradient2)"
-            stroke="none"
-            opacity="0.7"
-          />
-        </svg>
-      </div>
       
       {/* Additional Decorative Wave at Bottom */}
      
       {/* Hero Content - Top on Mobile, Left on Desktop */}
-      <div className="relative z-10 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-0 pb-8 lg:py-20">
+      <div className="lg:relative absolute lg:static z-10 top-0 left-0 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-0 lg:pt-12 pb-2 lg:pb-8">
         <div className="max-w-4xl text-left">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 mb-6 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
-            <span className="w-2 h-2 bg-violet-400 rounded-full animate-pulse mr-2"></span>
-            <span className="text-xs font-semibold text-white drop-shadow-2xl font-bold">
+          <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 lg:mb-6 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-violet-400 rounded-full animate-pulse mr-2"></span>
+            <span className="text-[10px] sm:text-xs font-semibold text-white drop-shadow-2xl font-bold">
               Available for opportunities
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">
-            <span className="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] mb-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+            <span className="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] mb-1 sm:mb-2">
               {text || "Hi, I'm Hillary"}
             </span>
            
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-white mb-8 leading-relaxed max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] font-semibold">
+          <p className="text-sm sm:text-base md:text-lg text-white mb-3 sm:mb-4 lg:mb-8 leading-relaxed max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] font-semibold">
             Crafting scalable, modern, and user-centered applications using cutting-edge full-stack technologies.
-            <span className="block mt-2 text-violet-100 font-medium">
+            <span className="block mt-1 sm:mt-2 text-violet-100 font-medium">
               Turning ideas into digital experiences.
             </span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-4 mb-8 flex-wrap">
+          <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4 lg:mb-8 flex-wrap">
             <a
               href="#hire"
-              className="group relative px-12 py-4 bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center backdrop-blur-sm border-2 border-white/30"
+              className="group relative px-6 sm:px-8 lg:px-12 py-2 sm:py-3 lg:py-4 bg-white text-violet-700 lg:bg-gradient-to-r lg:from-violet-600 lg:via-purple-600 lg:to-violet-600 lg:text-white text-sm sm:text-base lg:text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center backdrop-blur-sm border-2 border-white/30"
             >
-              <span className="relative z-10 flex items-center gap-3">
+              <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                 <span>Hire Me</span>
-                <i className="bx bx-right-arrow-alt text-xl group-hover:translate-x-2 transition-transform duration-300"></i>
+                <i className="bx bx-right-arrow-alt text-lg sm:text-xl group-hover:translate-x-2 transition-transform duration-300"></i>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
@@ -244,18 +193,18 @@ const Home = () => {
 
             <a
               href="#contact"
-              className="group relative px-12 py-4 bg-white/15 backdrop-blur-md text-white text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center border-2 border-white/30"
+              className="group relative px-6 sm:px-8 lg:px-12 py-2 sm:py-3 lg:py-4 bg-white/90 backdrop-blur-md text-violet-700 lg:bg-white/15 lg:text-white text-sm sm:text-base lg:text-lg font-bold rounded-2xl shadow-2xl hover:shadow-violet-500/50 transform hover:scale-110 transition-all duration-300 overflow-hidden inline-flex items-center border-2 border-white/30"
             >
-              <span className="relative z-10 flex items-center gap-3">
+              <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                 <span>Let's Talk</span>
-                <i className="bx bx-message-rounded text-xl group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"></i>
+                <i className="bx bx-message-rounded text-lg sm:text-xl group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"></i>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-5 pt-4">
+          <div className="flex gap-3 sm:gap-4 lg:gap-5 pt-1 sm:pt-2 lg:pt-4">
             {[
               {
                 href: "https://web.facebook.com/hilary.gebremedhn/",
