@@ -202,36 +202,36 @@ const Home = () => {
       {/* Additional Decorative Wave at Bottom */}
      
       {/* Hero Content - Top on Mobile, Left on Desktop */}
-      <div className="relative z-10 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-4 pb-4 md:pt-6 lg:py-20 lg:pt-20">
+      <div className="relative z-10 w-full pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 sm:pr-6 lg:pr-8 pt-6 pb-4 md:pt-8 lg:py-20 lg:pt-20">
         <div className="max-w-4xl text-left">
           {/* Badge */}
-          <div className="inline-flex items-center px-3.5 py-2 mb-4 sm:mb-4 lg:mb-6 bg-white/20 backdrop-blur-md rounded-full border border-white/40 shadow-lg">
+          <div className="inline-flex items-center px-4 py-2 mb-5 sm:mb-4 lg:mb-6 bg-white/20 backdrop-blur-md rounded-full border border-white/40 shadow-lg">
             <span className="w-2 h-2 bg-violet-300 rounded-full animate-pulse mr-2"></span>
-            <span className="text-[11px] sm:text-xs font-semibold text-white drop-shadow-lg">
+            <span className="text-xs sm:text-xs font-semibold text-white drop-shadow-lg">
               Available for opportunities
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-2.5xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-3 lg:mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-3 lg:mb-4 leading-tight">
             <span className="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
               {text || "Hi, I'm Hillary"}
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-[13px] sm:text-base md:text-lg text-white mb-5 sm:mb-5 lg:mb-8 leading-relaxed max-w-3xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-white mb-6 sm:mb-5 lg:mb-8 leading-relaxed max-w-3xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] font-medium">
             Crafting scalable, modern, and user-centered applications using cutting-edge full-stack technologies.
-            <span className="block mt-1.5 sm:mt-2 text-violet-100 font-normal">
+            <span className="block mt-2 sm:mt-2 text-violet-100 font-normal">
               Turning ideas into digital experiences.
             </span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-3 sm:gap-3 lg:gap-4 mb-4 sm:mb-4 lg:mb-8 flex-wrap">
+          <div className="flex items-center gap-3 sm:gap-3 lg:gap-4 mb-5 sm:mb-4 lg:mb-8 flex-wrap">
             <a
               href="#hire"
-              className="group relative px-6 sm:px-8 lg:px-12 py-2.5 sm:py-3 lg:py-4 bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white text-[13px] sm:text-base lg:text-lg font-bold rounded-xl sm:rounded-2xl shadow-xl hover:shadow-violet-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center backdrop-blur-sm border-2 border-white/30"
+              className="group relative px-7 sm:px-8 lg:px-12 py-3 sm:py-3 lg:py-4 bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white text-sm sm:text-base lg:text-lg font-bold rounded-xl sm:rounded-2xl shadow-xl hover:shadow-violet-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center backdrop-blur-sm border-2 border-white/30"
             >
               <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                 <span>Hire Me</span>
@@ -243,7 +243,7 @@ const Home = () => {
 
             <a
               href="#contact"
-              className="group relative px-6 sm:px-8 lg:px-12 py-2.5 sm:py-3 lg:py-4 bg-white/20 backdrop-blur-md text-white text-[13px] sm:text-base lg:text-lg font-bold rounded-xl sm:rounded-2xl shadow-xl hover:shadow-violet-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center border-2 border-white/30"
+              className="group relative px-7 sm:px-8 lg:px-12 py-3 sm:py-3 lg:py-4 bg-white/20 backdrop-blur-md text-white text-sm sm:text-base lg:text-lg font-bold rounded-xl sm:rounded-2xl shadow-xl hover:shadow-violet-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center border-2 border-white/30"
             >
               <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                 <span>Let's Talk</span>
