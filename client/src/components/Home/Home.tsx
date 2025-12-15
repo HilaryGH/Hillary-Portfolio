@@ -262,7 +262,7 @@ const Home = () => {
               },
               { 
                 href: "https://x.com/hilarygebr71591", 
-                icon: "bxl-twitter",
+                icon: "bxl-x",
               },
               {
                 href: "https://www.linkedin.com/in/hilary-gebremedhn-97528b20b",
@@ -281,7 +281,17 @@ const Home = () => {
                 className="group flex justify-center items-center text-white hover:text-violet-200 transition-all duration-300 ease-out hover:scale-125 active:scale-95"
                 aria-label={`Visit ${s.icon.replace('bxl-', '').replace('bx-', '')} profile`}
               >
-                <i className={`bx ${s.icon} text-xl sm:text-xl lg:text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg`} />
+                {s.icon === 'bxl-x' ? (
+                  <svg 
+                    className="text-xl sm:text-xl lg:text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg w-[1.2em] h-[1.2em] fill-current" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                ) : (
+                  <i className={`bx ${s.icon} text-xl sm:text-xl lg:text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg`} />
+                )}
               </a>
             ))}
           </div>
