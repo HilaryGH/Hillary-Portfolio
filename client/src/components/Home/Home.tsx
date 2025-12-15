@@ -281,7 +281,7 @@ const Home = () => {
                 className="group flex justify-center items-center text-white hover:text-violet-200 transition-all duration-300 ease-out hover:scale-125 active:scale-95"
                 aria-label={`Visit ${s.icon.replace('bxl-', '').replace('bx-', '')} profile`}
               >
-                <i className={`bx ${s.icon} text-lg sm:text-xl lg:text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg`} />
+                <i className={`bx ${s.icon} text-xl sm:text-xl lg:text-2xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg`} />
               </a>
             ))}
           </div>
