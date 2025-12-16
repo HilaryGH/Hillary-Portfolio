@@ -13,17 +13,17 @@ const Portfolio = () => {
       {/* Section Header */}
       <div className="relative z-10 text-center mb-16">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 w-fit mb-6">
-          <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-          <span className="text-sm text-gray-300">Portfolio</span>
+          <span className="w-2 h-2 bg-violet-400 rounded-full animate-pulse"></span>
+          <span className="text-sm text-gray-300">Certifications</span>
         </div>
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4">
           My{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400">
-            Development Journey
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-violet-400">
+            Certifications
           </span>
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          A collection of certifications and projects showcasing my growth as a developer
+          Professional certifications and achievements that validate my skills and knowledge
         </p>
       </div>
 

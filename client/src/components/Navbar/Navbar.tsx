@@ -105,7 +105,7 @@ export default function Navbar() {
 
             {/* RESUME BUTTON */}
             <a
-              href="/resume.pdf"
+              href="Hilari Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 group relative px-6 py-2.5 rounded-xl font-semibold text-sm text-white overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
@@ -178,7 +178,7 @@ export default function Navbar() {
             })}
 
             <a
-              href="/resume.pdf"
+              href="Hilari Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
