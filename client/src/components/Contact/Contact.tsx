@@ -1,5 +1,23 @@
 import { useState } from "react";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
+
+// EmailJS Configuration
+// Option 1: Use environment variables (recommended for production)
+// Create a .env file in the client directory with:
+// VITE_EMAILJS_SERVICE_ID=your_service_id
+// VITE_EMAILJS_TEMPLATE_ID=your_template_id
+// VITE_EMAILJS_PUBLIC_KEY=your_public_key
+//
+// Option 2: Replace the values directly below
+// Get these from https://www.emailjs.com/
+// 1. Create a free account at emailjs.com
+// 2. Create an email service (Gmail, Outlook, etc.)
+// 3. Create an email template
+// 4. Get your Public Key, Service ID, and Template ID
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,23 +25,87 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear status when user starts typing
+    if (submitStatus.type) {
+      setSubmitStatus({ type: null, message: "" });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    // Check if EmailJS is configured
+    if (EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" || 
+        EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID" || 
+        EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+      setSubmitStatus({
+        type: "error",
+        message: "Email service not configured. Please contact me directly at hilarygebremedhn28@gmail.com",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      await axios.post(
-        "https://hillary-portfolio.onrender.com/send-email",
-        formData
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "hilarygebremedhn28@gmail.com",
+        }
       );
-      alert("Message sent successfully!");
-    } catch (error) {
-      alert("Failed to send message.");
+      
+      setSubmitStatus({
+        type: "success",
+        message: "Message sent successfully! I'll get back to you soon.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error: any) {
+      console.error("Error sending message:", error);
+      
+      let errorMessage = "Failed to send message. ";
+      
+      if (error.text) {
+        errorMessage += error.text;
+      } else if (error.message) {
+        errorMessage += error.message;
+      } else {
+        errorMessage += "An unexpected error occurred. ";
+      }
+      
+      errorMessage += " You can contact me directly at ";
+      
+      setSubmitStatus({
+        type: "error",
+        message: errorMessage,
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -108,16 +190,59 @@ const Contact = () => {
               ></textarea>
             </div>
 
+            {/* Status Message */}
+            {submitStatus.type && (
+              <div
+                className={`p-4 rounded-xl border ${
+                  submitStatus.type === "success"
+                    ? "bg-green-500/10 border-green-400/30 text-green-300"
+                    : "bg-red-500/10 border-red-400/30 text-red-300"
+                }`}
+              >
+                <div className="flex items-start gap-3">
+                  <i
+                    className={`bx ${
+                      submitStatus.type === "success"
+                        ? "bx-check-circle"
+                        : "bx-error-circle"
+                    } text-xl flex-shrink-0`}
+                  ></i>
+                  <div className="flex-1">
+                    <p className="text-sm">{submitStatus.message}</p>
+                    {submitStatus.type === "error" && (
+                      <a
+                        href={`mailto:hilarygebremedhn28@gmail.com?subject=Contact from Portfolio&body=Name: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0A%0AMessage:%0A${encodeURIComponent(formData.message)}`}
+                        className="mt-2 inline-flex items-center gap-2 text-sm underline hover:text-red-200 transition-colors"
+                      >
+                        <i className="bx bx-envelope"></i>
+                        Click here to send via email instead
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
             <button
               type="submit"
-              className="group w-full relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50"
+              disabled={isSubmitting}
+              className="group w-full relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600"></span>
               <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative flex items-center justify-center gap-2">
-                <i className="bx bx-send text-xl"></i>
-                Send Message
-                <i className="bx bx-right-arrow-alt text-xl group-hover:translate-x-1 transition-transform"></i>
+                {isSubmitting ? (
+                  <>
+                    <i className="bx bx-loader-alt text-xl animate-spin"></i>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <i className="bx bx-send text-xl"></i>
+                    Send Message
+                    <i className="bx bx-right-arrow-alt text-xl group-hover:translate-x-1 transition-transform"></i>
+                  </>
+                )}
               </span>
             </button>
           </div>
