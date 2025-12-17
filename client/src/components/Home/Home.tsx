@@ -105,7 +105,7 @@ const Home = () => {
           {/* Main Organic Curve Separator - Smooth Wave Design */}
           <path
             d="M 0,0 L 0,800 C 200,800 400,750 600,600 C 700,500 750,400 800,300 C 850,200 880,100 900,0 L 0,0 Z"
-            fill="url(#curveGradient1)"
+            fill=""
             stroke="none"
             filter="url(#glow)"
           />
@@ -113,7 +113,7 @@ const Home = () => {
           {/* Secondary Curve for Depth - More pronounced wave */}
           <path
             d="M 0,0 L 0,800 C 250,800 450,720 650,580 C 750,500 800,400 850,280 C 880,180 900,100 920,0 L 0,0 Z"
-            fill="url(#curveGradient3)"
+            fill=""
             stroke="none"
             opacity="0.9"
           />
@@ -192,7 +192,7 @@ const Home = () => {
           {/* Tertiary Curve for Layered Effect */}
           <path
             d="M 0,0 L 800,0 L 800,460 C 700,460 600,510 500,560 C 400,610 300,660 200,710 C 100,760 50,810 0,860 L 0,0 Z"
-            fill="url(#mobileCurveGradient2)"
+            fill=""
             stroke="none"
             opacity="0.7"
           />
