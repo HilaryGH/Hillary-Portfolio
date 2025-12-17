@@ -1,23 +1,9 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import axios from "axios";
 
-// EmailJS Configuration
-// Option 1: Use environment variables (recommended for production)
-// Create a .env file in the client directory with:
-// VITE_EMAILJS_SERVICE_ID=your_service_id
-// VITE_EMAILJS_TEMPLATE_ID=your_template_id
-// VITE_EMAILJS_PUBLIC_KEY=your_public_key
-//
-// Option 2: Replace the values directly below
-// Get these from https://www.emailjs.com/
-// 1. Create a free account at emailjs.com
-// 2. Create an email service (Gmail, Outlook, etc.)
-// 3. Create an email template
-// 4. Get your Public Key, Service ID, and Template ID
-
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+// Backend server configuration
+// Make sure your backend server is running on port 5000
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -46,59 +32,55 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
-    // Check if EmailJS is configured
-    if (EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" || 
-        EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID" || 
-        EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
-      setSubmitStatus({
-        type: "error",
-        message: "Email service not configured. Please contact me directly at hilarygebremedhn28@gmail.com",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      // Initialize EmailJS
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-
-      // Send email using EmailJS
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+      // Send email using your backend server
+      const response = await axios.post(
+        `${BACKEND_URL}/send-email`,
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           message: formData.message,
-          to_email: "hilarygebremedhn28@gmail.com",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
-      
-      setSubmitStatus({
-        type: "success",
-        message: "Message sent successfully! I'll get back to you soon.",
-      });
-      
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+
+      if (response.status === 200) {
+        setSubmitStatus({
+          type: "success",
+          message: "Message sent successfully! I'll get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error: any) {
       console.error("Error sending message:", error);
       
-      let errorMessage = "Failed to send message. ";
+      let errorMessage = "";
       
-      if (error.text) {
-        errorMessage += error.text;
+      if (error.code === "ERR_NETWORK" || error.message.includes("Network Error")) {
+        errorMessage = "Cannot connect to server. Please make sure the backend server is running on port 5000.";
+      } else if (error.response?.status === 500) {
+        errorMessage = "Server error. Please check your email configuration or try again later.";
+      } else if (error.response?.status === 400) {
+        errorMessage = "Invalid request. Please check all fields are filled correctly.";
+      } else if (error.response?.data) {
+        errorMessage = error.response.data;
       } else if (error.message) {
-        errorMessage += error.message;
+        errorMessage = error.message;
       } else {
-        errorMessage += "An unexpected error occurred. ";
+        errorMessage = "Failed to send message. Please try again or contact me directly at hilarygebremedhn28@gmail.com";
       }
-      
-      errorMessage += " You can contact me directly at ";
       
       setSubmitStatus({
         type: "error",
